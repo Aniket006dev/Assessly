@@ -8,7 +8,7 @@ import styles from './GeneratingScreen.module.css';
 const GEN_STEPS = [
   { label: 'Parsing assignment details', icon: ClipboardList },
   { label: 'Structuring AI prompt', icon: WandSparkles },
-  { label: 'Calling Claude AI', icon: Sparkles },
+  { label: 'Calling AI', icon: Sparkles },
   { label: 'Parsing and validating response', icon: FileSearch },
   { label: 'Saving to database', icon: Database },
 ];

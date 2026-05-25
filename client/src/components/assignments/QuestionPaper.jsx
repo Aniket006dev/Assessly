@@ -30,7 +30,96 @@ const QuestionPaper = () => {
     </div>
   );
 
-  const handlePrint = () => window.print();
+const handlePrint = () => {
+  const printContents = printRef.current.innerHTML;
+
+  // Copy global + module stylesheets
+  const pageStyles = Array.from(
+    document.querySelectorAll('style, link[rel="stylesheet"]')
+  )
+    .map((node) => node.outerHTML)
+    .join('');
+
+  const printWindow = window.open('', '_blank');
+
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Question Paper</title>
+        ${pageStyles}
+
+        <style>
+          @media print {
+            html, body {
+              margin: 0 !important;
+              padding: 20px !important;
+              background: white !important;
+              overflow: visible !important;
+              height: auto !important;
+            }
+
+            button,
+            svg {
+              display: none !important;
+            }
+
+            /* Hide difficulty + type badges */
+            .${styles.diffBadge},
+            .${styles.typeBadge} {
+              display: none !important;
+            }
+
+            /* Keep marks */
+            .${styles.marksBadge} {
+              display: inline-flex !important;
+            }
+
+            .${styles.paper} {
+              box-shadow: none !important;
+              border: none !important;
+              border-radius: 0 !important;
+              overflow: visible !important;
+            }
+
+            .${styles.outputWrap},
+            .${styles.paperBody} {
+              overflow: visible !important;
+              height: auto !important;
+              max-height: none !important;
+            }
+
+            .${styles.sectionBlock},
+            .${styles.questionItem} {
+              page-break-inside: avoid;
+              break-inside: avoid;
+            }
+
+            .${styles.questionItem}:hover {
+              box-shadow: none !important;
+            }
+
+            * {
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
+            }
+          }
+        </style>
+      </head>
+
+      <body>
+        ${printContents}
+      </body>
+    </html>
+  `);
+
+  printWindow.document.close();
+
+  setTimeout(() => {
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+  }, 500);
+};
 
   const handleRegenerate = async () => {
     if (!activeAssignment?._id) return;

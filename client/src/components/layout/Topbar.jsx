@@ -63,7 +63,7 @@ const Topbar = ({ title }) => {
                     <div className={styles.dropAvatar}>{user?.name?.[0]?.toUpperCase() || 'T'}</div>
                     <div>
                       <div className={styles.dropName}>{user?.name || 'Teacher'}</div>
-                      <div className={styles.dropEmail}>{user?.email}</div>
+                      {/* <div className={styles.dropEmail}>{user?.email}</div> */}
                     </div>
                   </div>
                   <div className={styles.dropDivider} />

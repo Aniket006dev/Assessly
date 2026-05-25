@@ -12,7 +12,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { loading, error, user } = useSelector((s) => s.auth);
 
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ email: 'demo@gmail.com', password: 'demo123' });
   const [errors, setErrors] = useState({});
   const [showPass, setShowPass] = useState(false);
 
@@ -118,17 +118,17 @@ const LoginPage = () => {
 
           <div className={styles.divider}><span>or</span></div>
 
-          {/* <div className={styles.demoBox}>
+          <div className={styles.demoBox}>
             <div className={styles.demoTitle}>Demo credentials</div>
             <div className={styles.demoRow}>
               <span className={styles.demoLabel}>Email:</span>
-              <code className={styles.demoVal}>demo@assessly.com</code>
+              <code className={styles.demoVal}>demo@gmail.com</code>
             </div>
             <div className={styles.demoRow}>
               <span className={styles.demoLabel}>Password:</span>
               <code className={styles.demoVal}>demo123</code>
             </div>
-          </div> */}
+          </div>
 
           <p className={styles.switchText}>
             Don't have an account?{' '}

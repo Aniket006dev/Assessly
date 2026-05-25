@@ -175,9 +175,67 @@
 
 /* Print */
 @media print {
-  .actionBar { display: none !important; }
-  .paper     { box-shadow: none; border: none; }
-  .questionItem:hover { box-shadow: none; }
+  /* Hide top controls only */
+  .actionBar {
+    display: none !important;
+  }
+
+  /* Page setup */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Make container printable */
+  .outputWrap {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Main paper */
+  .paper {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  /* Prevent clipping */
+  .paperBody {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  /* Prevent awkward page breaks */
+  .sectionBlock,
+  .questionItem {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Remove hover effects */
+  .questionItem:hover {
+    box-shadow: none !important;
+  }
+
+  /* Print colors properly */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide icons only */
+  .actionBar svg {
+    display: none !important;
+  }
 }
 
 /* Responsive */
