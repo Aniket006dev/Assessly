@@ -1,0 +1,194 @@
+/* client/src/components/assignments/QuestionPaper.module.css */
+.outputWrap { max-width: 900px; margin: 0 auto; animation: fadeInUp 0.3s ease; }
+
+/* Action bar */
+.actionBar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+}
+.actionLeft { display: flex; align-items: center; gap: 10px; }
+.actionRight { display: flex; gap: 10px; }
+.backLink {
+  font-size: 13px; color: var(--mid); background: none; border: none;
+  cursor: pointer; font-family: var(--font-sans); padding: 6px 0;
+  transition: color var(--t-fast);
+}
+.backLink:hover { color: var(--dark); }
+
+/* Paper container */
+.paper {
+  background: white;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* Header */
+.paperHeader {
+  background: linear-gradient(135deg, var(--dark) 0%, #2D3748 100%);
+  padding: 32px 40px; text-align: center; position: relative; overflow: hidden;
+  color: white;
+}
+.paperHeader::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px,
+    transparent 1px, transparent 14px
+  );
+}
+.schoolBadge {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-bottom: 8px; position: relative;
+}
+.paperTitle {
+  font-family: var(--font-serif);
+  font-size: 28px; color: white; margin-bottom: 6px;
+  position: relative; line-height: 1.2;
+}
+.paperSub { font-size: 14px; color: rgba(255,255,255,0.65); position: relative; }
+
+/* Meta strip */
+.metaStrip {
+  display: flex; border-top: 3px solid var(--brand);
+  border-bottom: 1px solid var(--border);
+}
+.metaCell {
+  flex: 1; padding: 14px 16px; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.metaCell:last-child { border-right: none; }
+.metaLabel {
+  font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 4px;
+}
+.metaVal { font-size: 17px; font-weight: 800; color: var(--dark); }
+
+/* Student info */
+.studentSection {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px;
+  padding: 20px 40px; background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.studentField { display: flex; flex-direction: column; gap: 6px; }
+.fieldLabel {
+  font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.fieldLine {
+  height: 1px; background: var(--dark);
+  margin-top: 4px;
+}
+
+/* General instructions */
+.generalInstructions {
+  padding: 16px 40px; background: #FFFBF5;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px; color: var(--dark-3); line-height: 1.7;
+}
+.generalInstructions strong { color: var(--dark); display: block; margin-bottom: 4px; }
+.generalInstructions ol { padding-left: 16px; }
+
+/* Body */
+.paperBody { padding: 32px 40px; display: flex; flex-direction: column; gap: 32px; }
+
+/* Section */
+.sectionBlock {}
+.sectionHeader { margin-bottom: 14px; }
+.sectionTitleRow {
+  display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px;
+}
+.sectionTitle {
+  font-size: 17px; font-weight: 800; color: var(--dark); letter-spacing: 0.2px;
+}
+.sectionMarks { font-size: 13px; color: var(--muted); font-weight: 500; }
+.sectionInstruction {
+  font-size: 12px; color: var(--mid); font-style: italic;
+  padding: 7px 14px; background: var(--brand-muted);
+  border-left: 3px solid var(--brand);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+
+/* Questions */
+.questionsList { display: flex; flex-direction: column; gap: 14px; }
+
+.questionItem {
+  display: flex; gap: 14px;
+  padding: 16px 18px; border-radius: var(--r);
+  border: 1px solid var(--border-2); background: var(--surface);
+  transition: box-shadow var(--t);
+}
+.questionItem:hover { box-shadow: var(--shadow-sm); border-color: var(--border); }
+
+.qNum {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--dark); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+}
+.qBody { flex: 1; min-width: 0; }
+.qText { font-size: 14px; line-height: 1.7; color: var(--dark); margin-bottom: 10px; }
+
+/* Options */
+.options { display: flex; flex-direction: column; gap: 7px; margin-bottom: 12px; }
+.option { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--dark-2); }
+.optionCircle {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 1.5px solid var(--border); flex-shrink: 0;
+}
+
+/* Answer lines */
+.answerLines { display: flex; flex-direction: column; gap: 10px; margin: 10px 0 12px; }
+.answerLine  { height: 1px; background: #E0E0E0; border-bottom: 1px dashed var(--border); }
+
+/* Tags */
+.qTags { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.diffBadge {
+  padding: 3px 10px; border-radius: var(--r-full);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
+}
+.easy   { background: var(--green-bg); color: var(--green-text); }
+.medium { background: var(--amber-bg); color: var(--amber-text); }
+.hard   { background: var(--red-bg);   color: var(--red-text); }
+.marksBadge {
+  padding: 3px 10px; border-radius: var(--r-full);
+  font-size: 11px; font-weight: 600;
+  background: var(--blue-bg); color: var(--blue-text);
+}
+.typeBadge {
+  padding: 3px 10px; border-radius: var(--r-full);
+  font-size: 11px; color: var(--muted);
+  background: var(--surface-2); border: 1px solid var(--border);
+}
+
+/* Footer */
+.paperFooter {
+  text-align: center; padding: 20px;
+  font-size: 12px; color: var(--muted);
+  border-top: 1px solid var(--border-2);
+  letter-spacing: 1px;
+}
+
+.noPaper { padding: 40px; text-align: center; color: var(--mid); }
+.noPaper button { color: var(--brand); background: none; border: none; cursor: pointer; text-decoration: underline; }
+
+/* Print */
+@media print {
+  .actionBar { display: none !important; }
+  .paper     { box-shadow: none; border: none; }
+  .questionItem:hover { box-shadow: none; }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .paperHeader    { padding: 24px 20px; }
+  .paperTitle     { font-size: 22px; }
+  .metaStrip      { flex-wrap: wrap; }
+  .metaCell       { min-width: 50%; }
+  .studentSection { grid-template-columns: 1fr; padding: 16px 20px; }
+  .paperBody      { padding: 20px; }
+  .generalInstructions { padding: 14px 20px; }
+}
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }

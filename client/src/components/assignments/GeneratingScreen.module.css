@@ -1,0 +1,90 @@
+/* client/src/components/assignments/GeneratingScreen.module.css */
+.screen {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; min-height: 65vh;
+  text-align: center; padding: 40px 20px;
+  animation: fadeInUp 0.35s ease;
+}
+
+/* Orb */
+.orb {
+  position: relative; width: 100px; height: 100px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 32px;
+}
+.orbIcon {
+  color: white; position: relative; z-index: 2;
+  animation: pulse 2s ease-in-out infinite;
+}
+.orbRing1, .orbRing2 {
+  position: absolute; inset: 0; border-radius: 50%;
+}
+.orbRing1 {
+  background: radial-gradient(circle at 40% 40%, var(--brand-light), var(--brand-dark));
+  box-shadow: 0 0 0 14px rgba(232,68,10,0.1), 0 0 0 28px rgba(232,68,10,0.05);
+  animation: pulse 2s ease-in-out infinite;
+}
+.orbRing2 {
+  background: rgba(232,68,10,0.08); transform: scale(1.6);
+  animation: pulse 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.06); opacity: 0.85; }
+}
+
+.title    { font-size: 24px; font-weight: 800; margin-bottom: 8px; color: var(--dark); }
+.subtitle { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 32px; max-width: 340px; }
+.subtitle strong { color: var(--dark); }
+
+/* Steps */
+.steps {
+  display: flex; flex-direction: column; gap: 10px;
+  width: 100%; max-width: 400px; margin-bottom: 28px;
+}
+.stepRow {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border-radius: var(--r-lg);
+  border: 1px solid var(--border); background: var(--surface);
+  transition: all 0.3s ease;
+}
+.stepRow.active  { border-color: var(--brand); background: #FFF5F2; }
+.stepRow.done    { border-color: var(--green); background: var(--green-bg); }
+.stepRow.pending { opacity: 0.55; }
+
+.stepIcon {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.stepIcon.done    { background: var(--green); color: white; }
+.stepIcon.active  { background: var(--brand); color: white; animation: spin 0.8s linear infinite; }
+.stepIcon.pending { background: var(--border); font-size: 16px; }
+
+.stepText { font-size: 13px; font-weight: 500; flex: 1; text-align: left; }
+.stepRow.done .stepText    { color: var(--green-text); }
+.stepRow.active .stepText  { color: var(--brand); }
+
+.stepTag { font-size: 11px; font-weight: 700; margin-left: auto; white-space: nowrap; }
+
+/* Progress */
+.progressWrap {
+  width: 100%; max-width: 400px; height: 6px;
+  background: var(--border); border-radius: var(--r-full); overflow: hidden; margin-bottom: 8px;
+}
+.progressBar {
+  height: 100%; background: linear-gradient(90deg, var(--brand), var(--brand-light));
+  border-radius: var(--r-full); transition: width 0.5s ease;
+}
+.progressLabel { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+
+.tip {
+  font-size: 12px; color: var(--muted); background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  padding: 10px 16px; max-width: 400px; line-height: 1.5;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+
+@keyframes spin       { to { transform: rotate(360deg); } }
+@keyframes fadeInUp   { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

@@ -1,0 +1,46 @@
+/* client/src/pages/ToolkitPage.module.css */
+.page   { display: flex; flex-direction: column; gap: 24px; }
+.header { margin-bottom: 4px; }
+.title  { font-size: 22px; font-weight: 800; color: var(--dark); }
+.sub    { font-size: 13px; color: var(--mid); margin-top: 3px; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.toolCard {
+  background: rgba(255,255,255,0.9); border: 1px solid #E2E8F0;
+  border-radius: 18px; padding: 22px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: all var(--t);
+}
+.toolCard:not(.disabled):hover { box-shadow: var(--shadow-md); border-color: var(--dark); transform: translateY(-2px); }
+.toolCard.disabled { opacity: 0.6; }
+
+.toolTop   { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px; }
+.toolIcon  { width: 46px; height: 46px; border-radius: 15px; background: #EEF2FF; color: #4338CA; display: grid; place-items: center; }
+.toolBadge {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 3px 8px; border-radius: var(--r-full);
+  background: var(--blue-bg); color: var(--blue-text);
+}
+.toolBadge.soon { background: var(--border); color: var(--muted); }
+
+.toolTitle { font-size: 16px; font-weight: 700; color: var(--dark); }
+.toolDesc  { font-size: 13px; color: var(--mid); line-height: 1.6; flex: 1; }
+
+/* Banner */
+.banner {
+  background: linear-gradient(135deg, var(--dark) 0%, #2D3748 100%);
+  border-radius: var(--r-xl); padding: 28px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.bannerTitle { font-size: 20px; font-weight: 800; color: white; margin-bottom: 6px; }
+.bannerSub   { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; max-width: 480px; }
+.bannerBadge {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8); font-size: 13px; font-weight: 600;
+  padding: 10px 18px; border-radius: var(--r-full); white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+
+@media (max-width: 960px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .grid { grid-template-columns: 1fr; } .banner { flex-direction: column; } }
