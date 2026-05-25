@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL:
     import.meta.env.MODE === 'development'
       ? '/api'
-      : 'https://your-backend-name.onrender.com/api',
+      : 'https://assessly-pel4.onrender.com/api',
   timeout: 30000,
   headers: { 'Content-Type': 'application/json' },
 });
