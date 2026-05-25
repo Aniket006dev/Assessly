@@ -1,8 +1,10 @@
-// client/src/utils/api.js
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL:
+    import.meta.env.MODE === 'development'
+      ? '/api'
+      : 'https://your-backend-name.onrender.com/api',
   timeout: 30000,
   headers: { 'Content-Type': 'application/json' },
 });
