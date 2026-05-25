@@ -10,29 +10,7 @@ Create smarter assignments in minutes with a focused MERN workflow for teachers:
 - Backend: Node.js, Express.js
 - Database: MongoDB with Mongoose
 - Realtime: WebSocket
-- AI: Anthropic Claude API
-
-## Project Structure
-
-```text
-assessly/
-  server/
-    config/
-    controllers/
-    middleware/
-    models/
-    routes/
-    utils/
-    index.js
-  client/
-    src/
-      components/
-      hooks/
-      pages/
-      store/
-      styles/
-      utils/
-```
+- AI: Multiple LLM API
 
 ## Quick Start
 
