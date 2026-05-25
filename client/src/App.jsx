@@ -88,14 +88,14 @@ const App = () => {
       <Routes>
         {/* Public */}
         {/* <Route path="/"         element={<LandingPage />} /> */}
-        <Route path="/"         element={<PublicRoute><DashboardPage /></PublicRoute>} />
+        <Route path="/"         element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
         <Route path="/login"    element={<PublicRoute><LoginPage /></PublicRoute>} />
         <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
 
         {/* Protected */}
         <Route path="/dashboard"   element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
         <Route path="/assignments" element={<PrivateRoute><AssignmentsPage /></PrivateRoute>} />
-        <Route path="/assignments/:id/generating" element={<PrivateRoute><AssignmentDetailPage generating /></PrivateRoute>} />
+        <Route path="/assignments/:id/generating" element={<PrivateRoute><AssignmentDetailPage /></PrivateRoute>} />
         <Route path="/assignments/:id" element={<PrivateRoute><AssignmentDetailPage /></PrivateRoute>} />
         <Route path="/groups"    element={<PrivateRoute><GroupsPage /></PrivateRoute>} />
         <Route path="/analytics" element={<PrivateRoute><AnalyticsPage /></PrivateRoute>} />
