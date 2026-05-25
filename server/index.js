@@ -66,15 +66,15 @@ app.use(errorHandler);
 
 // ── Start ─────────────────────────────────────────────────────────────────────
 const PORT = parseInt(process.env.PORT || '5000', 10);
-const HOST = '127.0.0.1';
+// const HOST = '127.0.0.1';
 
 connectDB()
   .then(() => {
-    server.listen(PORT, HOST, () => {
+    server.listen(PORT, () => {
       console.log('');
       console.log('╔════════════════════════════════════════╗');
       console.log(`║  Assessly Server                       ║`);
-      console.log(`║  http://${HOST}:${PORT}                  ║`);
+      console.log(`║                                        ║`);
       console.log('╚════════════════════════════════════════╝');
       console.log('');
 
