@@ -80,13 +80,12 @@ const ToolkitPage = () => {
           })}
         </div>
 
-        <div className={styles.banner}>
+        {/* <div className={styles.banner}>
           <div className={styles.bannerLeft}>
             <h2 className={styles.bannerTitle}>Built for CBSE and ICSE Curricula</h2>
             <p className={styles.bannerSub}>Assessly understands NCERT standards and Indian school assessment patterns, making every question paper curriculum-aligned.</p>
           </div>
-          {/* <div className={styles.bannerBadge}><Building2 size={15} strokeWidth={2} /> IIM Bangalore Incubated</div> */}
-        </div>
+        </div> */}
       </AnimatedContainer>
     </AppLayout>
   );
