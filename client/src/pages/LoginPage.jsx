@@ -45,7 +45,7 @@ const LoginPage = () => {
       <div className={styles.left}>
         <div className={styles.leftContent}>
           <div className={styles.brandLogo}>
-            <div className={styles.logoBox}>A</div>
+            <div className={styles.logoBox}>a</div>
             <span>Assessly</span>
           </div>
           <h1 className={styles.heroTitle}>

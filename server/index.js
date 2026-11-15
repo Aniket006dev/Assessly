@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 const express   = require('express');
 const http      = require('http');
 const WebSocket = require('ws');
@@ -13,7 +13,6 @@ const { startWorker } = require('./jobs/generationWorker');
 const app    = express();
 const server = http.createServer(app);
 
-// ── WebSocket ─────────────────────────────────────────────────────────────────
 const wss = new WebSocket.Server({ server, path: '/ws' });
 
 wss.on('connection', (ws) => {
@@ -30,7 +29,7 @@ wss.on('connection', (ws) => {
   ws.on('error', () => {});
 });
 
-// ── Middleware ────────────────────────────────────────────────────────────────
+//  Middleware  
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cors({
   origin: [
@@ -46,9 +45,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/',      rateLimit({ windowMs: 15 * 60 * 1000, max: 300 }));
 app.use('/api/auth/', rateLimit({ windowMs: 15 * 60 * 1000, max: 30  }));
 
-// ── Routes ────────────────────────────────────────────────────────────────────
+//  Routes  //
 app.use('/api/auth',        require('./routes/auth'));
 app.use('/api/assignments', require('./routes/assignments'));
+app.use('/api/evaluations', require('./routes/evaluations'));
 app.use('/api/groups',      require('./routes/groups'));
 app.use('/api/dashboard',   require('./routes/dashboard'));
 
@@ -61,10 +61,10 @@ app.use((req, res) => {
   res.status(404).json({ success: false, message: `Route ${req.method} ${req.url} not found` });
 });
 
-// ── Error handler ─────────────────────────────────────────────────────────────
+// â”€â”€ Error handler â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.use(errorHandler);
 
-// ── Start ─────────────────────────────────────────────────────────────────────
+// â”€â”€ Start â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const PORT = parseInt(process.env.PORT || '5000', 10);
 // const HOST = '127.0.0.1';
 
@@ -72,23 +72,23 @@ connectDB()
   .then(() => {
     server.listen(PORT, () => {
       console.log('');
-      console.log('╔════════════════════════════════════════╗');
-      console.log(`║  Assessly Server                       ║`);
-      console.log(`║                                        ║`);
-      console.log('╚════════════════════════════════════════╝');
+      console.log('â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—');
+      console.log(`â•‘  Assessly Server                       â•‘`);
+      console.log(`â•‘                                        â•‘`);
+      console.log('â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•');
       console.log('');
 
       // Start BullMQ worker (gracefully skip if Redis unavailable)
       try {
         startWorker(wss);
       } catch (err) {
-        console.warn('⚠️  BullMQ worker skipped (Redis may be offline):', err.message);
+        console.warn('âš ï¸  BullMQ worker skipped (Redis may be offline):', err.message);
         console.warn('   Generation will still work via direct API calls.');
       }
     });
   })
   .catch((err) => {
-    console.error('❌ Failed to connect to MongoDB:', err.message);
+    console.error('âŒ Failed to connect to MongoDB:', err.message);
     console.error('   Make sure MongoDB is running and MONGODB_URI is correct in .env');
     process.exit(1);
   });

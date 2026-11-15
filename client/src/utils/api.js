@@ -6,7 +6,6 @@ const api = axios.create({
       ? '/api'
       : 'https://assessly-pel4.onrender.com/api',
   timeout: 30000,
-  headers: { 'Content-Type': 'application/json' },
 });
 
 // Attach JWT token to every request

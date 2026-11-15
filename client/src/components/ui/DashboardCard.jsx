@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import styles from './DashboardCard.module.css';
 
-const DashboardCard = ({ label, value, sub, icon: Icon, tone = 'blue', delay = 0 }) => (
+const DashboardCard = ({ label, value, sub, icon: Icon, tone = 'blue', delay = 0, art = '' }) => (
   <motion.div
-    className={`${styles.card} ${styles[tone]}`}
+    className={`${styles.card} ${styles[tone]} ${art ? styles.withArt : ''}`}
     initial={{ opacity: 0, y: 14 }}
     animate={{ opacity: 1, y: 0 }}
     whileHover={{ y: -4, scale: 1.01 }}
@@ -15,6 +15,7 @@ const DashboardCard = ({ label, value, sub, icon: Icon, tone = 'blue', delay = 0
     </div>
     <div className={styles.value}>{value}</div>
     {sub && <div className={styles.sub}>{sub}</div>}
+    {art && <div className={`${styles.art} ${styles[art]}`} aria-hidden="true"><i/><i/><i/><i/><i/></div>}
   </motion.div>
 );
 

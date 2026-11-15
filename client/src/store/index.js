@@ -4,6 +4,7 @@ import authReducer from './slices/authSlice';
 import assignmentReducer from './slices/assignmentSlice';
 import groupReducer from './slices/groupSlice';
 import uiReducer from './slices/uiSlice';
+import evaluationReducer from './slices/evaluationSlice';
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     assignments: assignmentReducer,
     groups: groupReducer,
     ui: uiReducer,
+    evaluations: evaluationReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),

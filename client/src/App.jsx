@@ -16,6 +16,8 @@ import LibraryPage          from './pages/LibraryPage';
 import ToolkitPage          from './pages/ToolkitPage';
 import SettingsPage         from './pages/SettingsPage';
 import LandingPage          from './pages/LandingPage';
+import EvaluationPage from  './pages/EvaluationsPage';
+import EvaluationDetailPage from './pages/EvaluationDetailPage';
 
 // ── Auth guard ────────────────────────────────────────────────────────────────
 const PrivateRoute = ({ children }) => {
@@ -87,8 +89,7 @@ const App = () => {
 
       <Routes>
         {/* Public */}
-        {/* <Route path="/"         element={<LandingPage />} /> */}
-        <Route path="/"         element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
+        <Route path="/"         element={<LandingPage />} />
         <Route path="/login"    element={<PublicRoute><LoginPage /></PublicRoute>} />
         <Route path="/register" element={<PublicRoute><RegisterPage /></PublicRoute>} />
 
@@ -102,6 +103,9 @@ const App = () => {
         <Route path="/library"   element={<PrivateRoute><LibraryPage /></PrivateRoute>} />
         <Route path="/toolkit"   element={<PrivateRoute><ToolkitPage /></PrivateRoute>} />
         <Route path="/settings"  element={<PrivateRoute><SettingsPage /></PrivateRoute>} />
+        <Route path="/evaluation"  element={<PrivateRoute><EvaluationPage /></PrivateRoute>} />
+        <Route path="/evaluations" element={<PrivateRoute><EvaluationPage /></PrivateRoute>} />
+        <Route path="/evaluations/:id" element={<PrivateRoute><EvaluationDetailPage /></PrivateRoute>} />
 
         {/* Default redirects */}
         <Route path="*"  element={<Navigate to="/dashboard" replace />} />

@@ -1,0 +1,36 @@
+﻿.zone {
+  position: relative;
+  min-height: 178px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 22px;
+  border: 1.5px dashed #CBD5E1;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.86);
+  cursor: pointer;
+  transition: border-color var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+}
+.zone:hover { border-color: #2563EB; transform: translateY(-2px); box-shadow: var(--shadow-md); background: #fff; }
+.zone input { display: none; }
+.hasFile { border-style: solid; border-color: #93C5FD; }
+.icon { width: 52px; height: 52px; border-radius: 18px; display: grid; place-items: center; color: #2563EB; background: #EFF6FF; }
+.copy { min-width: 0; }
+.copy strong { display: block; color: #111827; font-size: 16px; font-weight: 850; margin-bottom: 5px; }
+.copy > span { display: block; color: #64748B; font-size: 13px; line-height: 1.5; }
+.fileMeta { margin-top: 14px; display: grid; gap: 3px; }
+.fileMeta span { color: #111827; font-size: 13px; font-weight: 750; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fileMeta small { color: #64748B; font-size: 11.5px; }
+.action { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; color: #0F172A; background: #F1F5F9; }
+.remove { position: absolute; top: 12px; right: 12px; width: 30px; height: 30px; border-radius: 999px; border: 1px solid #E2E8F0; background: #fff; color: #EF4444; display: grid; place-items: center; }
+@media (max-width: 560px) { .zone { grid-template-columns: 1fr; align-items: start; min-height: 0; } .action { display: none; } }
+
+.zone { border-color: #dfd4c7; border-radius: 14px; background: #fffdf9; }
+.zone:hover { border-color: #e47745; box-shadow: 0 10px 24px rgb(92 57 29 / 8%); background: #fff; }
+.hasFile { border-color: #e9a47f; background: #fffaf5; }
+.icon { color: #b94d25; background: #fff0e6; }
+.copy strong, .fileMeta span { color: #29251f; }
+.copy > span, .fileMeta small { color: #71695f; }
+.action { color: #a3431e; background: #fff0e6; }
+.remove { border-color: #e9e1d6; }

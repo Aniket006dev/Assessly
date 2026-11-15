@@ -1,6 +1,7 @@
 import {
   BookOpen,
   ClipboardList,
+  ClipboardCheck,
   Home,
   Settings,
   Sparkles,
@@ -11,6 +12,7 @@ export const NAV_ITEMS = [
   { path: '/dashboard', label: 'Home', shortLabel: 'Home', icon: Home },
   { path: '/groups', label: 'My Groups', shortLabel: 'Groups', icon: Users },
   { path: '/assignments', label: 'Assignments', shortLabel: 'Tasks', icon: ClipboardList, badgeKey: 'total' },
+  { path: '/evaluations', label: 'Answer Evaluation', shortLabel: 'Review', icon: ClipboardCheck },
   { path: '/toolkit', label: "AI Teacher's Toolkit", shortLabel: 'Toolkit', icon: Sparkles },
   { path: '/library', label: 'My Library', shortLabel: 'Library', icon: BookOpen },
   { path: '/settings', label: 'Settings', shortLabel: 'Settings', icon: Settings },

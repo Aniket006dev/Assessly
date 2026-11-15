@@ -73,10 +73,10 @@ const DashboardPage = () => {
         </AnimatedContainer>
 
         <div className={styles.statsRow}>
-          <DashboardCard label="Total Assignments" value={statsLoading ? '...' : total} icon={ClipboardList} tone="blue" sub={`${completed} completed`} delay={0.03} />
-          <DashboardCard label="Active Groups" value={statsLoading ? '...' : totalGroups} icon={Users} tone="emerald" sub="groups enrolled" delay={0.06} />
-          <DashboardCard label="Pending" value={statsLoading ? '...' : pending} icon={Clock3} tone="slate" sub="awaiting generation" delay={0.09} />
-          <DashboardCard label="Completion Rate" value={total > 0 ? `${Math.round((completed / total) * 100)}%` : '-'} icon={CheckCircle2} tone="indigo" sub="assignments done" delay={0.12} />
+          <DashboardCard label="Total Assignments" value={statsLoading ? '...' : total} icon={ClipboardList} tone="blue" sub={`${completed} completed`} delay={0.03} art="assignment" />
+          <DashboardCard label="Active Groups" value={statsLoading ? '...' : totalGroups} icon={Users} tone="emerald" sub="groups enrolled" delay={0.06} art="groups" />
+          <DashboardCard label="Pending" value={statsLoading ? '...' : pending} icon={Clock3} tone="slate" sub="awaiting generation" delay={0.09} art="pending" />
+          <DashboardCard label="Completion Rate" value={total > 0 ? `${Math.round((completed / total) * 100)}%` : '-'} icon={CheckCircle2} tone="indigo" sub="assignments done" delay={0.12} art="completion" />
         </div>
 
         <AnimatedContainer as="section" className={styles.section} delay={0.08}>

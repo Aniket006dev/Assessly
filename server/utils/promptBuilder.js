@@ -14,6 +14,8 @@ const buildGenerationPrompt = (d) => {
 You are an expert educator.
 
 Generate a structured question paper in STRICT JSON format.
+First interpret the requested topics and reference instructions semantically. Identify the distinct concepts and their relationships, then distribute questions across those concepts. Keep every question aligned with the stated subject and class level. Avoid repeated questions that test the same concept in the same way. Use the requested question types and difficulty levels to test recall, understanding, application, and reasoning where appropriate. Do not invent syllabus topics beyond the provided scope.
+Design the result like a real examination question paper. Organize it into alphabetically labelled sections, give each section a concise instruction, use one continuous question number sequence, and place the section title before its questions. Keep MCQ options separate from the stem.
 
 Assignment details:
 Title: ${d.title}
@@ -25,7 +27,7 @@ Total Marks: ${total}
 Question Types: ${d.questionTypes.join(', ')}
 Difficulty Distribution: ${distrib}
 Additional Instructions: ${
-    d.instructions || 'Standard curriculum questions'
+    d.instructions || 'Cover the core concepts from the named subject and topic at the stated class level.'
   }
 
 IMPORTANT RULES:
@@ -89,7 +91,7 @@ const parseAIResponse = (raw, data) => {
   parsed.sections = parsed.sections.map((section) => ({
     ...section,
     questions: (section.questions || []).map((q) => ({
-      id: q.id || qNum++,
+    id: qNum++,
       text: q.text || 'Question',
       type: q.type || 'Short Answer',
       difficulty: q.difficulty || 'medium',

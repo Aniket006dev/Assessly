@@ -65,6 +65,7 @@ const enqueueGeneration = (assignmentId, assignmentData) => {
       const completion = await groq.chat.completions.create({
         model: 'openai/gpt-oss-120b',
         temperature: 0.7,
+        max_completion_tokens: 900,
         messages: [
           {
             role: 'user',

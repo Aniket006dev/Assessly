@@ -8,7 +8,7 @@ import {
 import { useWebSocket } from '../../hooks/useWebSocket';
 import Modal from '../ui/Modal';
 import Button from '../ui/Button';
-import { ArrowLeft, ArrowRight, BarChart3, Check, Sparkles, TriangleAlert, Upload } from 'lucide-react';
+import { ArrowLeft, ArrowRight, BarChart3, Check, Sparkles, TriangleAlert } from 'lucide-react';
 import styles from './CreateModal.module.css';
 import toast from 'react-hot-toast';
 
@@ -275,35 +275,14 @@ const CreateModal = ({ open, onClose }) => {
         <div className={styles.formBody}>
           <div className={styles.formGroup}>
             <label className={styles.label}>Topic & Instructions</label>
-            <p className={styles.hint}>Describe topics, specific chapters, or any guidance for the AI</p>
+            <p className={styles.hint}>Add syllabus topics, course notes, chapters, or source material. The AI uses this context to balance concept coverage and avoid out-of-scope questions.</p>
             <textarea
               className={styles.textarea}
-              rows={4}
-              placeholder="e.g. Focus on Ohm's Law, Series and Parallel circuits, and electromagnetic induction. Include numerical problems and conceptual questions..."
+              rows={6}
+              placeholder="Paste the relevant syllabus or notes, then add any constraints. For example: Ohm's Law; series and parallel circuits; electromagnetic induction. Include numerical applications and conceptual reasoning."
               value={form.instructions}
               onChange={(e) => set('instructions', e.target.value)}
             />
-          </div>
-
-          <div className={styles.formGroup}>
-            <label className={styles.label}>
-              Reference Material{' '}
-              <span className={styles.optional}>(optional)</span>
-            </label>
-            <label className={styles.fileZone}>
-              <input
-                type="file"
-                accept=".pdf,.txt,.doc,.docx"
-                className={styles.fileInput}
-                onChange={(e) => set('file', e.target.files[0])}
-              />
-              <Upload size={24} strokeWidth={1.9} />
-              {form.file ? (
-                <span className={styles.fileName}>{form.file.name}</span>
-              ) : (
-                <span><strong>Click to upload</strong> or drag &amp; drop<br />PDF, DOC, TXT</span>
-              )}
-            </label>
           </div>
 
           {/* AI notice */}
@@ -312,7 +291,7 @@ const CreateModal = ({ open, onClose }) => {
             <div>
               <div className={styles.aiTitle}>AI-Powered Generation</div>
               <div className={styles.aiBody}>
-                Claude will craft {form.numQuestions} structured questions across{' '}
+                AI will craft {form.numQuestions} structured questions across{' '}
                 {form.difficulty.length} difficulty levels, organized into sections with clear instructions.
               </div>
             </div>

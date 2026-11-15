@@ -29,10 +29,10 @@ const login = async (req, res, next) => {
     const token = signToken(user._id);
     res.json({ success: true, token, user });
   } catch (err) { next(err); }
-};
+}; 
 
-const getMe           = async (req, res) => res.json({ success: true, user: req.user });
-const updateProfile   = async (req, res, next) => {
+const getMe = async (req, res) => res.json({ success: true, user: req.user });
+const updateProfile = async (req, res, next) => {
   try {
     const { name, schoolName, schoolCity } = req.body;
     const user = await User.findByIdAndUpdate(

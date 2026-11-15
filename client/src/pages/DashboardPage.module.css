@@ -1,7 +1,7 @@
 .page { display: flex; flex-direction: column; gap: 24px; }
 
 .welcomeBanner {
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 55%, #2563EB 100%);
+  background: linear-gradient(118deg, #183b30 0%, #285943 68%, #477b56 100%);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 24px;
   padding: 28px 30px;
@@ -21,7 +21,9 @@
   width: 260px;
   height: 260px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.10);
+  background: radial-gradient(circle at 35% 35%, rgba(210,236,187,.27), rgba(255,255,255,.04) 63%, transparent 64%);
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 0 0 28px rgba(255,255,255,.035), 0 0 0 58px rgba(255,255,255,.025);
   pointer-events: none;
 }
 .welcomeLeft { position: relative; z-index: 1; min-width: 0; }

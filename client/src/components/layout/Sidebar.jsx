@@ -38,7 +38,7 @@ const Sidebar = () => {
       )}
       <aside className={`${styles.sidebar} ${sidebarOpen ? styles.open : ''}`}>
         <div className={styles.logo}>
-          <div className={styles.logoIcon}>A</div>
+          <div className={styles.logoIcon}>a</div>
           <span className={styles.logoText}>Assessly</span>
         </div>
 
